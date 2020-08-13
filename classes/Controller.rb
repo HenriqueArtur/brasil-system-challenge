@@ -24,8 +24,6 @@ class Controller
         puts "[9] - Fechar aplicação"
         puts "\n"
         puts "Escolha uma Opção:"
-        opt = gets.chomp
-        chooseOption(opt)
     end
 
     def chooseOption(opt)
@@ -64,23 +62,18 @@ class Controller
     def completTest
         puts "\n"
         puts "----------------------------------------"
-        puts 'TESTE COMPLETO'
-        puts "O nome completo do usuário é: #{@user.getName}."
-        puts "A data de nascimento do usuário é: #{@user.getBirth.strftime('%d/%m/%Y')}."
-        puts "A idade ao cubo de #{@user.getName} é: #{@utils.pwr3Age(@user.getBirth)}."
-        puts "O Somatório das dígito da data de nascimento de #{@user.getName} é: #{@utils.dateSum(@user.getBirth)}."
-        puts "Digite uma String para ser invertida:"
-        str = gets.chomp
-        puts "A String \"str\" invertida é: #{@utils.strReverse(str)}"
-        puts "Digite uma String para ser exibida pela metade:"
-        str = gets.chomp
-        puts "A String \"str\" invertida é: #{@utils.strReverse(str)}"
-        puts '........'
-        puts 'Teste finalizado'
-        puts "\n"
+        puts '[0] - Fazer teste completo'
+        showName
+        showBirth
+        changeName
+        changeBirth
+        showPwr3Birth
+        showBirthSum
+        showStrReverse
+        showStrHalf
+        puts '...Teste finalizado'
         puts "----------------------------------------"
         puts "\n"
-        options
     end
 
     def showName
@@ -88,7 +81,6 @@ class Controller
         puts "----------------------------------------"
         puts '[1] - Mostra nome Completo'
         puts "O nome completo do usuário é: #{@user.getName}."
-        puts "\n"
         puts "----------------------------------------"
     end
 
@@ -96,8 +88,7 @@ class Controller
         puts "\n"
         puts "----------------------------------------"
         puts '[2] - Mostra data de nascimento'
-        puts "A data de Nascimento do usuário é: #{@user.getBirth}."
-        puts "\n"
+        puts "A data de Nascimento do usuário é: #{@user.getBirth.strftime('%d/%m/%Y')}."
         puts "----------------------------------------"
     end
 
@@ -108,7 +99,6 @@ class Controller
         puts "Digite o novo nome de usário:"
         @user.setName
         puts "O novo nome de usuário é: #{@user.getName}"
-        puts "\n"
         puts "----------------------------------------"
     end
 
@@ -119,52 +109,62 @@ class Controller
         puts "Digite a data de nascimento do usuário:"
         @user.setBirth
         puts "A nova data de nascimento do usuário é: #{@user.getBirth.strftime('%d/%m/%Y')}"
-        puts "\n"
         puts "----------------------------------------"
     end
 
-    # def 
-    #     puts "\n"
-    #     puts "----------------------------------------"
-    #     puts '[] - Mudar nome'
-    #     puts "."
-    #     puts "\n"
-    #     puts "----------------------------------------"
-    # end
+    def showPwr3Birth
+        puts "\n"
+        puts "----------------------------------------"
+        puts '[5] - Mostrar o cubo da idade'
+        puts "O cubo da idade do usuário é: #{@utils.pwr3Age(@user.getBirth)}."
+        puts "----------------------------------------"
+    end
 
-    # def 
-    #     puts "\n"
-    #     puts "----------------------------------------"
-    #     puts '[] - Mudar nome'
-    #     puts "."
-    #     puts "\n"
-    #     puts "----------------------------------------"
-    # end
+    def showBirthSum
+        puts "\n"
+        puts "----------------------------------------"
+        puts '[6] - Somar dígitos da data de nascimento'
+        puts "A soma dos dígitos da data de nascimento do usuário é: #{@utils.dateSum(@user.getBirth)}."
+        puts "----------------------------------------"
+    end
 
-    # def 
-    #     puts "\n"
-    #     puts "----------------------------------------"
-    #     puts '[] - Mudar nome'
-    #     puts "."
-    #     puts "\n"
-    #     puts "----------------------------------------"
-    # end
+    def showStrReverse
+        puts "\n"
+        puts "----------------------------------------"
+        puts '[7] - Inverter uma String'
+        puts "Digite uma String para ser invertida:"
+        str = gets.chomp
+        puts "A String \"#{str}\" invertida é: \"#{@utils.strReverse(str)}\""
+        puts "----------------------------------------"
+    end
 
-    # def 
-    #     puts "\n"
-    #     puts "----------------------------------------"
-    #     puts '[] - Mudar nome'
-    #     puts "."
-    #     puts "\n"
-    #     puts "----------------------------------------"
-    # end
+    def showStrHalf
+        puts "\n"
+        puts "----------------------------------------"
+        puts '[8] - Mostra String pela metade'
+        puts "Digite uma String para ser exibida pela metade:"
+        str = gets.chomp
+        puts "A String \"#{str}\" invertida é: \"#{@utils.srtHalf(str)}\""
+        puts "----------------------------------------"
+    end
 
-    # def 
-    #     puts "\n"
-    #     puts "----------------------------------------"
-    #     puts '[] - Mudar nome'
-    #     puts "."
-    #     puts "\n"
-    #     puts "----------------------------------------"
-    # end
+    def continue?
+        puts "\n"
+        puts "----------------------------------------"
+        puts 'Deseja continuar?[s/n]'
+        str = gets.chomp
+        if str == 's' || str ==  'S'
+            puts "----------------------------------------"
+        else
+            if str == 'n' || str ==  'N'
+                puts "\n"
+                puts 'Obrigado e até logo!'
+                puts "----------------------------------------"
+                exit
+            else
+                puts 'resposta inválida'
+                continue?
+            end
+        end
+    end
 end
