@@ -1,15 +1,7 @@
-require_relative 'User'
+require_relative './classes/Controller'
 
-user = User.new
-puts user.getName
-puts user.getBirth
+controller = Controller.instance
 
-puts 'Mude o nome:'
-user.setName
-
-puts 'Mude o nascimento:'
-user.setBirth
-
-puts 'Novos dados:'
-puts "Nome: #{user.getName}"
-puts "Nascimento: #{user.getBirth}"
+while true
+    controller.options
+end

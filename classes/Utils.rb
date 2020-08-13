@@ -1,11 +1,11 @@
 require 'date'
 
 class Utils
-    def srtReverse(str)
+    def strReverse(str)
         if str.is_a? String
             return str.reverse
         else
-            puts 'Parametro inválido.\nPasse uma string como parametro'
+            puts "Parametro inválido.\nPasse uma string como parametro"
             newStr = gets.chomp
             srtReverse(newStr)
         end
@@ -15,9 +15,9 @@ class Utils
         if str.is_a? String
             return str[0..(str.length/2-1).floor]
         else
-            puts 'Parametro inválido.\nPasse uma string como parametro'
+            puts "Parametro inválido.\nPasse uma string como parametro"
             newStr = gets.chomp
-            srtHalf(newStr, errMsg)
+            srtHalf(newStr)
         end
     end
     
