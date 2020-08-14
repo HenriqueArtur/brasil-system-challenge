@@ -18,7 +18,7 @@ class User
         def setName
             newName = gets.chomp
             if newName =~ /^[a-zA-Z\s]+$/
-                @name = newName
+                @name = newName.downcase.strip!.split.map(&:capitalize).join(' ')
             else
                 puts "Nome Inválido\nDigite um novo nome:"
                 setName()

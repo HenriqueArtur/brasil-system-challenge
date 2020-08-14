@@ -15,8 +15,8 @@ class Controller
         puts "[0] - Fazer teste completo"
         puts "[1] - Mostra nome Completo"
         puts "[2] - Mostra data de nascimento"
-        puts "[3] - Mudar nome"
-        puts "[4] - Mudar nascimento"
+        puts "[3] - Definir nome"
+        puts "[4] - Definir nascimento"
         puts "[5] - Mostrar o cubo da idade"
         puts "[6] - Somar dígitos da data de nascimento"
         puts "[7] - Inverter uma String"
@@ -63,10 +63,10 @@ class Controller
         puts "\n"
         puts "----------------------------------------"
         puts '[0] - Fazer teste completo'
-        showName
-        showBirth
         changeName
         changeBirth
+        showName
+        showBirth
         showPwr3Birth
         showBirthSum
         showStrReverse
@@ -95,20 +95,20 @@ class Controller
     def changeName
         puts "\n"
         puts "----------------------------------------"
-        puts '[3] - Mudar nome'
-        puts "Digite o novo nome de usário:"
+        puts '[3] - Definir nome'
+        puts "Digite o nome de usário:"
         @user.setName
-        puts "O novo nome de usuário é: #{@user.getName}"
+        puts "O nome de usuário é: #{@user.getName}."
         puts "----------------------------------------"
     end
 
     def changeBirth
         puts "\n"
         puts "----------------------------------------"
-        puts '[4] - Mudar nascimento'
+        puts '[4] - Definir nascimento'
         puts "Digite a data de nascimento do usuário:"
         @user.setBirth
-        puts "A nova data de nascimento do usuário é: #{@user.getBirth.strftime('%d/%m/%Y')}"
+        puts "A nova data de nascimento do usuário é: #{@user.getBirth.strftime('%d/%m/%Y')}."
         puts "----------------------------------------"
     end
 
@@ -134,7 +134,7 @@ class Controller
         puts '[7] - Inverter uma String'
         puts "Digite uma String para ser invertida:"
         str = gets.chomp
-        puts "A String \"#{str}\" invertida é: \"#{@utils.strReverse(str)}\""
+        puts "A String \"#{str}\" invertida é: \"#{@utils.strReverse(str)}\"."
         puts "----------------------------------------"
     end
 
@@ -144,7 +144,7 @@ class Controller
         puts '[8] - Mostra String pela metade'
         puts "Digite uma String para ser exibida pela metade:"
         str = gets.chomp
-        puts "A String \"#{str}\" invertida é: \"#{@utils.srtHalf(str)}\""
+        puts "A String \"#{str}\" pela metade é: \"#{@utils.srtHalf(str)}\"."
         puts "----------------------------------------"
     end
 

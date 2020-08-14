@@ -20,7 +20,6 @@ class Utils
             init = const * (half+1)
             final = (const == 0 ? half : str.length - 1 )
 
-            puts "[half=#{half}, init=#{init}, final=#{final}, length=#{str.length}, const=#{const}]"
             return str[init..final]
         else
             puts "Parametro inválido.\nPasse uma string como parametro"
